@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+
 import org.chat21.android.ui.contacts.activites.ContactListActivity;
 
 public class HomeFragment extends Fragment {
