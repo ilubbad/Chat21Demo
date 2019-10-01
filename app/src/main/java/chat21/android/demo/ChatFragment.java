@@ -1,11 +1,21 @@
 package chat21.android.demo;
 
+import android.Manifest;
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 
 import org.chat21.android.ui.ChatUI;
@@ -17,7 +27,7 @@ import org.chat21.android.ui.ChatUI;
  * <p>
  * You have to define a container in which inflate the chat.
  */
-public class ChatFragment extends Fragment /*implements MyPresenceListener */{
+public class ChatFragment extends Fragment /*implements MyPresenceListener */ {
 
     private static final String TAG = ChatFragment.class.getName();
 
@@ -49,7 +59,14 @@ public class ChatFragment extends Fragment /*implements MyPresenceListener */{
         setHasOptionsMenu(false); // disable fragment option menu
 
         // starts the chat inside a container
+
+       /* if (checkPermissionREAD_EXTERNAL_STORAGE(getActivity())) {
+            // do your stuff..
+
+
+        }*/
         ChatUI.getInstance().openConversationsListFragment(getChildFragmentManager(), R.id.container);
+
 
         return rootView;
     }
@@ -83,4 +100,5 @@ public class ChatFragment extends Fragment /*implements MyPresenceListener */{
 //    public void onMyPresenceError(Exception e) {
 //        Log.e(DEBUG_MY_PRESENCE, "ChatFragment.onMyPresenceError: " + e.toString());
 //    }
+
 }
